@@ -1,0 +1,19 @@
+# user data: session, device tokens, spec cache
+data/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# build
+build/
+dist/
+*.spec
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

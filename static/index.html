@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiHome Control</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ff6a00'/><text x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>mi</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<section id="loginView" class="login hide">
+  <div class="lbox">
+    <div class="card">
+      <div class="lhead"><div class="logo"><i>mi</i>MiHome Control</div><div class="lang" data-lang></div></div>
+      <h2 id="lTitle"></h2>
+      <div class="mut" id="lSub"></div>
+
+      <form id="lForm" autocomplete="on">
+        <div id="stepCred">
+          <div class="fld"><label for="u" data-i18n="login.account"></label>
+            <div class="inp"><input id="u" name="username" autocomplete="username" data-i18n-ph="login.accountPh" required></div>
+            <div class="hint mut" id="uHint"></div></div>
+          <div class="fld"><label for="p" data-i18n="login.password"></label>
+            <div class="inp"><input id="p" type="password" name="password" autocomplete="current-password" placeholder="••••••••" required>
+              <button type="button" class="eye" id="eye" aria-label="show password"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+            <div class="hint mut" id="capsHint"></div></div>
+          <details class="adv"><summary data-i18n="login.advanced"></summary>
+            <div class="fld"><label for="srv" data-i18n="login.region"></label>
+              <div class="inp"><select id="srv">
+                <option value="auto" data-i18n="login.regionAuto"></option>
+                <option value="sg">Singapore – sg (Vietnam, SEA)</option><option value="cn">China – cn</option>
+                <option value="de">Europe – de</option><option value="us">USA – us</option><option value="in">India – in</option>
+                <option value="ru">Russia – ru</option><option value="tw">Taiwan – tw</option><option value="i2">i2</option></select></div></div>
+          </details>
+        </div>
+
+        <div id="stepCap" class="hide">
+          <div class="alert info" style="margin-top:14px" data-i18n="login.capInfo"></div>
+          <div class="fld"><div class="capr"><img id="capImg" alt="captcha"><div class="inp" style="flex:1"><input id="cap" data-i18n-ph="login.capPh" autocomplete="off"></div></div></div>
+        </div>
+
+        <div id="step2fa" class="hide"><div class="alert info" style="margin-top:14px" id="faInfo"></div></div>
+
+        <div id="lErr" class="alert err hide" style="margin-top:14px"></div>
+        <button class="btn p full" id="lBtn" type="submit"></button>
+        <div class="steps"><i id="s1" class="on"></i><i id="s2"></i><i id="s3"></i></div>
+        <div class="hint mut" style="text-align:center;margin-top:12px" data-i18n="login.secure"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP ============ -->
+<section id="appView" class="hide">
+  <div class="top">
+    <div class="logo"><i>mi</i><span class="hide-sm">MiHome Control</span></div>
+    <div class="sp"></div>
+    <span class="pill" id="connPill"><span class="d"></span><span id="connTxt">—</span></span>
+    <span class="pill hide-sm" id="userPill"></span>
+    <div class="lang" data-lang></div>
+    <a class="btn sm hide-sm" href="/docs" target="_blank">Swagger</a>
+    <button class="btn sm" id="logoutBtn" data-i18n="top.logout"></button>
+  </div>
+
+  <div class="wrap">
+    <div class="devbar">
+      <div><h1 id="devName"></h1><div class="meta mut mono" id="devMeta"></div></div>
+      <div class="sp"></div>
+      <select class="sel" id="devSel"></select>
+      <select class="sel" id="viaSel">
+        <option value="auto" data-i18n="via.auto"></option><option value="lan" data-i18n="via.lan"></option><option value="cloud" data-i18n="via.cloud"></option></select>
+      <button class="btn" id="refBtn" data-i18n-title="refresh"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button data-t="dash" data-i18n="tab.dash"></button>
+      <button data-t="all" data-i18n="tab.all"></button>
+      <button data-t="api" data-i18n="tab.api"></button>
+      <button data-t="log" data-i18n="tab.log"></button>
+    </div>
+
+    <div id="view"></div>
+  </div>
+</section>
+
+<div id="toasts"></div>
+
+<script src="/static/i18n.js"></script>
+<script src="/static/visuals.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

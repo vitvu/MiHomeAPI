@@ -1,0 +1,5 @@
+fastapi>=0.110
+uvicorn>=0.27
+requests>=2.31
+# LAN control. On Windows without C++ build tools see README → "python-miio fails to install".
+python-miio>=0.5.12
