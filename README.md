@@ -4,25 +4,27 @@
 
 # MiHome API
 
-Local web dashboard + REST API for Xiaomi Mi Home (MIoT) devices.<br>
-Sign in once, control everything from your browser or scripts.
+Local web dashboard + REST API for **all your Xiaomi Mi Home devices**:<br>
+purifiers, fans, lights, plugs, humidifiers, vacuums, sensors and more.
 
 [![Download](https://img.shields.io/github/v/release/vitvu/MiHomeAPI?label=download&color=ff6a00)](https://github.com/vitvu/MiHomeAPI/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Donate](https://img.shields.io/badge/donate-PayPal-0070ba?logo=paypal)](https://paypal.me/vudinhviet)
 
-<img src="docs/dashboard-en.png" alt="Dashboard" width="860">
+<img src="docs/devices.png" alt="Supported device types" width="860">
 
 </div>
 
 ## Features
 
 - **Sign in once.** Captcha and 2-step verification are supported. Your password is never stored.
-- **Works with any MIoT device.** Controls are built from the device's spec, with advanced settings hidden until you need them.
+- **Works with any MIoT device.** Controls are generated from each model's [MIoT spec](https://home.miot-spec.com), so no per-model code is needed. Advanced settings stay hidden until you need them.
 - **LAN first, cloud fallback.** Fast local control when the device is reachable, Xiaomi Cloud otherwise.
-- **Live, animated device view.** The fan spins at the real motor speed.
+- **Live, animated device view** for each device type. A fan spins at its real speed, a light glows at its brightness and color.
 - **REST API.** Ready-made `curl` examples in the UI, plus Swagger at `/docs`.
 - **English and Vietnamese, light/dark theme, works on phones.**
+
+<p align="center"><img src="docs/dashboard-en.png" alt="Dashboard example: air purifier" width="860"><br><sub>Example: Xiaomi Smart Air Purifier 4 Pro</sub></p>
 
 ## Getting started
 
@@ -52,8 +54,10 @@ python app.py
 ```bash
 curl -X POST http://127.0.0.1:8000/api/devices/<did>/props \
   -H "Content-Type: application/json" \
-  -d '{"props":[{"key":"air-purifier.mode","value":3},{"key":"air-purifier.fan-level","value":2}]}'
+  -d '{"props":[{"key":"light.brightness","value":80}]}'
 ```
+
+Properties are addressed as `service.property`, e.g. `light.brightness`, `fan.fan-level`, `air-purifier.mode`.
 
 Add `?via=lan` or `?via=cloud` to force a connection. The full list of endpoints and property keys is in the **API** tab of the dashboard.
 
@@ -62,7 +66,7 @@ Add `?via=lan` or `?via=cloud` to force a connection. The full list of endpoints
 - The server only listens on `127.0.0.1`. Don't expose it to the internet.
 - The `data/` folder holds your session and device tokens. Keep it private.
 - If SmartScreen warns about the exe, click **More info → Run anyway**.
-- Tested with the Xiaomi Smart Air Purifier 4 Pro (`zhimi.airp.vb4`). If a device doesn't display correctly, please [open an issue](https://github.com/vitvu/MiHomeAPI/issues).
+- Any Wi-Fi device in your Mi Home account that has a MIoT spec is supported. If one doesn't display correctly, please [open an issue](https://github.com/vitvu/MiHomeAPI/issues) with its model name.
 
 ## Credits
 
