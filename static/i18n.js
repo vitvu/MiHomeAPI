@@ -54,8 +54,8 @@ window.I18N = {
     'e.devices': 'Devices with IP, token and online state. Without refresh the cache is used.', 'e.device': 'One device',
     'e.spec': 'MIoT spec: every property / action, siid / piid, data type, allowed values',
     'e.status': 'Read the whole state. via = auto | lan | cloud', 'e.prop': 'Read one property by key',
-    'e.power': 'Turn on / off', 'e.mode': 'Change mode (0 Auto · 1 Sleep · 2 Favorite · 3 Manual)',
-    'e.multi': 'Write several properties at once, by key or siid/piid', 'e.action': 'Run an action (e.g. reset filter)', 'e.raw': 'Send a raw miIO command over LAN',
+    'e.power': 'Turn on / off', 'e.mode': 'Change mode (allowed values are in the key table below)',
+    'e.multi': 'Write several properties at once, by key or siid/piid', 'e.action': 'Run an action', 'e.raw': 'Send a raw miIO command over LAN',
     'log.empty': 'No requests yet.', 'log.req': 'Request', 'log.res': 'Response',
   },
 
@@ -108,8 +108,8 @@ window.I18N = {
     'e.devices': 'Danh sách thiết bị kèm IP, token, trạng thái online. Bỏ refresh để dùng cache.', 'e.device': 'Thông tin 1 thiết bị',
     'e.spec': 'MIoT spec: mọi property / action, siid / piid, kiểu dữ liệu, giá trị hợp lệ',
     'e.status': 'Đọc toàn bộ trạng thái. via = auto | lan | cloud', 'e.prop': 'Đọc 1 property theo key',
-    'e.power': 'Bật / tắt', 'e.mode': 'Đổi chế độ (0 Auto · 1 Sleep · 2 Favorite · 3 Manual)',
-    'e.multi': 'Ghi nhiều property cùng lúc, theo key hoặc siid/piid', 'e.action': 'Gọi action (vd reset lõi lọc)', 'e.raw': 'Gửi lệnh miIO thô qua LAN',
+    'e.power': 'Bật / tắt', 'e.mode': 'Đổi chế độ (giá trị hợp lệ xem bảng key bên dưới)',
+    'e.multi': 'Ghi nhiều property cùng lúc, theo key hoặc siid/piid', 'e.action': 'Gọi action', 'e.raw': 'Gửi lệnh miIO thô qua LAN',
     'log.empty': 'Chưa có request nào.', 'log.req': 'Request', 'log.res': 'Response',
     // value descriptions coming from MIoT specs (English) -> Vietnamese
     _values: {
